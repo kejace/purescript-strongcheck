@@ -77,7 +77,7 @@ instance testableFunction :: (Arbitrary t, Testable prop) => Testable (t -> prop
   test f = test <<< f =<< arbitrary
 
 instance testableGen :: Testable prop => Testable (GenT (Free Lazy) prop) where
-  test = flip bind test
+  test = test
 
 -- | Checks the proposition for 100 random values.
 quickCheck :: forall prop. Testable prop => prop -> Effect Unit

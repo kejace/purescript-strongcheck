@@ -45,5 +45,8 @@
     "purescript-tailrec": "^4.0.0",
     "purescript-transformers": "^4.0.0",
     "purescript-tuples": "^5.0.0"
+  },
+  "devDependencies": {
+    "purescript-psci-support": "^4.0.0"
   }
 }
