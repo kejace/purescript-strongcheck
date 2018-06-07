@@ -76,8 +76,12 @@ instance testableResult :: Testable Result where
 instance testableFunction :: (Arbitrary t, Testable prop) => Testable (t -> prop) where
   test f = test <<< f =<< arbitrary
 
-instance testableGen :: Testable prop => Testable (GenT (Free Lazy) prop) where
+instance testableGenFree :: Testable prop => Testable (GenT (Free Lazy) prop) where
   test = test
+
+instance testableGen :: Testable prop => Testable (GenT (Function Unit) prop) where
+  test = test
+
 
 -- | Checks the proposition for 100 random values.
 quickCheck :: forall prop. Testable prop => prop -> Effect Unit
