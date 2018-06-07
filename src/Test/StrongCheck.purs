@@ -79,7 +79,7 @@ instance testableFunction :: (Arbitrary t, Testable prop) => Testable (t -> prop
 instance testableGenFree :: Testable prop => Testable (GenT (Free Lazy) prop) where
   test = test
 
-instance testableGen :: Testable prop => Testable (GenT (Function Unit) prop) where
+instance testableGen :: Testable prop => Testable (GenT (Free (Function Unit)) prop) where
   test = test
 
 
